@@ -6,7 +6,7 @@ export default function Navbar () {
     const isPokemon = ({isActive}) => (isActive ? 'active' : 'notActive');
 
     return (
-        <div>
+        <div className ='navBar'>
             <NavLink className = {isPokemon} to = '/'> Home</NavLink>
             <NavLink className = {({isActive}) => (isActive ? 'active' : 'nostActive')} to = '/pokemon'> Pokemon</NavLink>
         </div>

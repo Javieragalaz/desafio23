@@ -10,7 +10,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
  //vistas 
 import Home from './views/Home';
-import Pokemon from './views/Pokemon';
+import Kanto from './views/Kanto';
 
 //componentes
 import Navbar from './components/Navbar';
@@ -25,7 +25,7 @@ function App() {
     <Navbar />
     <Routes>
       <Route path = '/' element = {<Home />} />
-      <Route path = '/pokemon' element = {<Pokemon />} />
+      <Route path = '/pokemon/:name' element = {<Kanto />} />
 
     </Routes>
     </BrowserRouter>
