@@ -1,36 +1,28 @@
-import { useState } from 'react';
-
-
-
 import './App.css';
-
-//librerias
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
- //vistas 
+import NavbarComp from './components/NavbarCom';
 import Home from './views/Home';
-import Kanto from './views/Kanto';
-
-//componentes
-import Navbar from './components/Navbar';
-
+import Pokemones from './views/Pokemones';
+import Pokemon from './components/Pokemon'
+import { Provider } from './JContext';
 
 function App() {
-
- 
   return (
-  <div>
-    <BrowserRouter>
-    <Navbar />
-    <Routes>
-      <Route path = '/' element = {<Home />} />
-      <Route path = 'pokemon/:name' element = {<Kanto />} />
 
-    </Routes>
+    <BrowserRouter>
+    <Provider>
+      <NavbarComp />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/pokemones/" element={<Pokemones />} />
+        <Route path="/pokemones/:pokeName" element={<Pokemon />} />
+      </Routes>
+     
+    </Provider>
     </BrowserRouter>
-  </div>
-  )
+  );
 }
 
-export default App
+export default App;
