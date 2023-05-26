@@ -25,7 +25,7 @@ function App() {
     <Navbar />
     <Routes>
       <Route path = '/' element = {<Home />} />
-      <Route path = '/pokemon/:name' element = {<Kanto />} />
+      <Route path = 'pokemon/:name' element = {<Kanto />} />
 
     </Routes>
     </BrowserRouter>

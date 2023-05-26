@@ -4,7 +4,8 @@ import {useNavigate} from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
-import Kanto from "./Kanto";
+import Button from 'react-bootstrap/Button';
+
 export default function Home() {
 
     const url = 'https://pokeapi.co/api/v2/pokemon'
@@ -33,12 +34,12 @@ export default function Home() {
     return (
 
         <div>Home
-            <Form.Select aria-label="Default select example" onChange = {(target) => setURL(target.value) }>
+            <Form.Select aria-label="Default select example" onChange = {(target) => setName(target.value) }>
                 {pokemones.map((results,index) =>  <option key={index} value={results.name}> {results.name} </option>)}
 
             </Form.Select>
 
-            <button onclick ={irAPokemon}>Pokedex</button>
+            <Button onClick ={irAPokemon}>Pokedex</Button>
         </div>
 
     );
