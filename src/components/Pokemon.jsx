@@ -1,53 +1,43 @@
-import { useContext } from 'react';
-import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
-import { JContext } from '../JContext';
+//IMPORTAR HOOKS
+import { useContext } from "react";
+import { useParams } from "react-router-dom";
 
-import Badge from 'react-bootstrap/Badge';
-import Col from 'react-bootstrap/esm/Col';
-import Row from 'react-bootstrap/Row';
-import { useParams } from 'react-router-dom';
+//CONTEXT
+import { JContext } from "../JContext";
+
+//ESTILOS BOOTSTRAP
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Container from 'react-bootstrap/Container';
+
+//AQUI COMIENZA LA FUNCIÓN 
 
 export default function Pokemones() {
   const { pokemon, pokemonStats } = useContext(JContext);
-  const { pokeName } = useParams();
+  const { pokeName } = useParams(); // El hook useParams nos permite acceder desde un componente a los parámetros de la ruta.
 
   return (
-    <Container className="ptnav mt-4 text-center">
-      <h2 style={{ textTransform: 'capitalize' }}>{pokeName}</h2>
-      <Container>
-        <Row className="justify-content-md-center">
-          <Col></Col>
-          <Col
-            md="auto"
-            className="d-flex justify-content-center align-items-center poke"
-          >
-            <Image src={pokemon.img} className="pokeImg" />
+    <Container>
+      <Card style={{ width: '25rem' }} className="rounded mx-auto d-block m-4 border border-dark p-4">
+        <Card.Img src={pokemon.img} />
 
-            <div className="text-start m-4">
-              <ul>
-                {pokemonStats[0]?.map((x, i) => {
-                  return (
-                    <li key={i}>
-                      {x.name}:{' '}
-                      <Badge pill bg="danger">
-                        {x.value}
-                      </Badge>
-                    </li>
-                  );
-                })}
-                <br></br>
-                <p>
-                  <Badge pill bg="warning" text="dark">
-                    {pokemon.types}
-                  </Badge>
-                </p>
-              </ul>
-            </div>
-          </Col>
-          <Col></Col>
-        </Row>
-      </Container>
+        <Card.Body>
+          <Card.Title className='text-center fs-2'>{pokeName}</Card.Title>
+        </Card.Body>
+
+        <ListGroup className="list-group-flush">{pokemonStats[0]?.map((x, i) => {
+          return (
+            <ListGroup.Item key={i}> {x.name}:{' '} {x.value}</ListGroup.Item>
+          );
+        })}
+          <ListGroup.Item className='text-center'> {pokemon.types}</ListGroup.Item>
+
+        </ListGroup>
+
+      </Card>
     </Container>
-  );
+
+  )
 }
+

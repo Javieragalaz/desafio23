@@ -1,9 +1,13 @@
-.active{
-  color: green;
+.active {
+  color: rgb(255, 230, 0);
+ text-decoration: none;
+  font-weight: bold;
 
 }
 
-.notActive{
+.notActive {
 
-color: blue;
+  color: rgb(0, 0, 0);
+text-decoration: none;
+font-weight: bold;
 }

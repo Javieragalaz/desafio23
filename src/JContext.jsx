@@ -39,7 +39,7 @@ export const Provider = ({ children }) => {
     pokemonName
       ? Navigate(`/pokemones/${pokemonName}`)
       : alert(
-          'Debes seleccionar un pokemón para ver su información, intenta nuevamente.'
+          'No has seleccionado ningún pokemon :('
         );
   };
 
@@ -48,6 +48,8 @@ export const Provider = ({ children }) => {
       getPokemones();
     };
   }, []);
+
+
 
   const globalState = {
     options,
