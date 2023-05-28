@@ -12,15 +12,15 @@ export const Provider = ({ children }) => {
   const url = 'https://pokeapi.co/api/v2/pokemon/';
 
   const getPokemones = async () => {
-    const resp = await fetch(url);
-    const data = await resp.json();
+    const res = await fetch(url);
+    const data = await res.json();
     const opts = data.results.map((d) => d.name);
     setOptions(opts);
   };
 
   const getPokemon = async (pokeName) => {
-    const resp = await fetch(`${url}${pokeName}`);
-    const data = await resp.json();
+    const res = await fetch(`${url}${pokeName}`);
+    const data = await res.json();
     const img = data.sprites.other.dream_world.front_default;
     const stats = data.stats.map((stat) => ({
       name: stat.stat.name,
